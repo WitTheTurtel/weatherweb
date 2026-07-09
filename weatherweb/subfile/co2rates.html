@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이산화탄소 농도와 집중력</title>
+
+<style>
+:root{
+    --bg:#e9e9e9;
+    --card:#ffffff;
+    --text:#1f2937;
+    --accent:#a0a0a0;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--text);
+    line-height:1.8;
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.container{
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dropdown {
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 30px 50px;
+}
+
+.dropdown summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    list-style: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown summary::after {
+    content: "▼";
+    float: right;
+    transition: transform 0.2s ease;
+}
+
+.dropdown[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.dropdown .details-content {
+    margin-top: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+h1{
+    color:var(--accent);
+    text-align:center;
+    margin-bottom:35px;
+    font-size:2.2rem;
+}
+
+.tip{
+    background:#e9e9e9;
+    border-left:6px solid var(--accent);
+    border-right:6px solid var(--accent);
+    padding:20px 25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#666;
+    font-size:0.95rem;
+}
+
+.back-button{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.back-button img{
+    width: 28px;
+    height: 28px;
+}
+
+.back-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+</style>
+
+</head>
+
+<body>
+
+    <a class="back-button" href="../index.html">
+        <img src="../images/backbutton.png" alt="Back">
+    </a>
+
+    <div class="container">
+
+        <h1>이산화탄소 농도와 집중력</h1>
+
+        <div class="tip">
+        선행 연구에 따르면, 이산화탄소 농도는 학생의 주의집중을 방해하고, 문제 풀이의 오답률을 높이며,
+        문제 풀이 속도를 지연시킵니다. 환기가 원활하여 이산화탄소 농도가 낮은 교실의 학생은 더 빠르고
+        정확하게 주의집중하고 반응하는 반면, <strong>농도가 높은 교실의 학생은 집중력이 낮아지고 졸음을
+        느끼게 됩니다.</strong>
+        </div>
+
+        <div class="tip">
+        실제 측정 결과(7/9), 오전 9시 이후 학생들이 교실에 머무르는 동안 CO₂ 농도는 최고점인
+        <strong>약 1,800ppm</strong>까지 상승하였고, 이후 <strong>1,000~1,300ppm</strong> 사이의
+        고농도 상태를 유지하였습니다. 이는 학교시설 실내공기질 관리기준인 1,000ppm을 초과하는 수치로,
+        학생들의 주의집중력을 방해하고 졸음을 유발할 수 있는 수준입니다.
+        </div>
+
+        <div class="tip">
+        점심시간 전후인 11시 53분부터는 CO₂ 농도가 약 400ppm 수준으로 급격히 떨어졌으며,
+        점심시간이 끝난 13시 30분부터 학생들이 복귀하자 다시 약 720ppm까지 상승하였습니다.
+        이를 통해 <strong>학생들의 이동 패턴이 교실 내 CO₂ 농도 변화와 밀접한 상관관계</strong>가
+        있음을 확인할 수 있었습니다.
+        </div>
+
+        <details class="dropdown">
+            <summary>배경 지식 및 세부 데이터 더 보기</summary>
+            <div class="details-content">
+                이산화탄소(CO₂)는 실내 공간에 사람들이 모여서 생활할 경우 자연스럽게 농도가 상승합니다.
+                보통 400~500ppm 정도의 농도로 분포하지만, 실내의 경우 2,000ppm을 넘는 경우도 종종 발생합니다.
+                <br><br>
+                또한 이산화탄소 농도가 상승함에 따라 사람들이 느끼는 주관적 졸음 척도가 유의미하게
+                상승하였고, 뇌가 각성 상태에서 졸음 상태로 전환될 때 나타나는 지표 또한 증가하였습니다.
+                이를 바탕으로 이산화탄소의 농도는 졸음과 상관관계가 있음을 알 수 있습니다. 따라서 졸음이
+                계속 오는데 밀폐된 실내 공간에 오랫동안 있었다면 한번쯤 일어나서 환기를 시켜보는 것이
+                좋습니다.
+                <br><br>
+                실제 측정 결과를 살펴보면, 학교의 일과 시간표에 따른 학생들의 이동 패턴이 교실 내
+                이산화탄소 농도 변화에 영향을 미치고 있음이 확인되었습니다. 전체적으로 학생들이 밀집하는
+                수업 시간에는 CO₂ 농도가 상승하고, 학생들이 이동하는 쉬는 시간 및 식사 시간에는 CO₂
+                농도가 하강하는 상관관계를 보였습니다.
+                <br><br>
+                5교시가 끝난 후인 14시 29분경에는 학생들이 교실 밖으로 이동하면서 CO₂ 농도가 다시
+                400ppm 부근으로 떨어지는 현상이 나타났습니다. 이 결과를 바탕으로, 환기를 쉬는 시간에만
+                수행하기보다 수업 중간에도 환기를 시키면 학생들의 집중력 증가와 졸음 감소 효과를 기대할
+                수 있을 것으로 생각됩니다.
+            </div>
+        </details>
+
+    </div>
+</body>
+</html>
