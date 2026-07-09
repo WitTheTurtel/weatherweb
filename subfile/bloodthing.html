@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이산화탄소 농도와 집중력</title>
+
+<style>
+:root{
+    --bg:#ffcfcf;
+    --card:#ffffff;
+    --text:#1f2937;
+    --accent:#ff4141;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--text);
+    line-height:1.8;
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.container{
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dropdown {
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 30px 50px;
+}
+
+.dropdown summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    list-style: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown summary::after {
+    content: "▼";
+    float: right;
+    transition: transform 0.2s ease;
+}
+
+.dropdown[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.dropdown .details-content {
+    margin-top: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+h1{
+    color:var(--accent);
+    text-align:center;
+    margin-bottom:35px;
+    font-size:2.2rem;
+}
+
+.tip{
+    background:#fff0f0;
+    border-left:6px solid var(--accent);
+    border-right:6px solid var(--accent);
+    padding:20px 25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#666;
+    font-size:0.95rem;
+}
+
+.back-button{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.back-button img{
+    width: 28px;
+    height: 28px;
+}
+
+.back-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+</style>
+
+</head>
+
+<body>
+
+    <a class="back-button" href="../index.html">
+        <img src="../images/backbutton.png" alt="Back">
+    </a>
+
+    <div class="container">
+
+        <h1>혈당량과 수면 유도</h1>
+
+        <div class="tip">
+        선행 연구에 따르면, 실험 대상에게 포도당을 주입한 결과 대조군에 비해 <strong>수면의 지속 시간이
+        유의미하게 증가</strong>하였습니다. 또한 높은 탄수화물 당지수의 식사를 했을 때가 낮은 탄수화물
+        당지수의 식사를 했을 때보다 <strong>잠에 드는 데 사용되는 시간이 절반가량 단축</strong>되었습니다.
+        </div>
+
+        <div class="tip">
+        혈당량이 높아질수록 뇌의 시상하부에서 각성을 유지하는 신경전달물질인 <strong>오렉신(Orexin)</strong>
+        분비 세포가 억제되어 각성도가 떨어지기 때문에 수면이 더 빨리 유도됩니다.
+        </div>
+
+        <div class="tip">
+        <strong>식이섬유 우선 섭취 실천(거꾸로 식사법)</strong>: 급식을 먹을 때 나물류, 샐러드, 야채 쌈 등
+        식이섬유가 풍부한 반찬을 먼저 섭취한 후, 단백질(고기, 생선)과 탄수화물(밥)을 섭취하는 순으로
+        식사를 진행합니다. 이 방법은 소화 과정에서 포도당이 혈액으로 흡수되는 속도를 늦춰 식후 졸음의
+        주원인인 혈당 스파이크를 조절해 줍니다.
+        </div>
+
+        <details class="dropdown">
+            <summary>배경 지식 더 보기</summary>
+            <div class="details-content">
+                혈당량은 혈액 속에 포함된 포도당의 농도로, 식후 탄수화물 흡수, 스트레스, 수면 부족, 질병
+                등으로 상승합니다. 그러므로 식사 후 자습 시간마다 잠이 오는 학생이라면 식사를 할 때
+                거꾸로 식사법과 같은 방법을 시도해보는 것이 좋습니다.
+            </div>
+        </details>
+
+    </div>
+</body>
+</html>

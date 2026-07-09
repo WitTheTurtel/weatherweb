@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이산화탄소 농도와 집중력</title>
+
+<style>
+:root{
+    --bg: linear-gradient(135deg, #e9d5ff, #8b5cf6);
+    --card:#ffffff;
+    --text:#1f2937;
+    --accent:#efdf00;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--text);
+    line-height:1.8;
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.container{
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dropdown {
+    max-width: 850px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 30px 50px;
+}
+
+.dropdown summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    list-style: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown summary::after {
+    content: "▼";
+    float: right;
+    transition: transform 0.2s ease;
+}
+
+.dropdown[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.dropdown .details-content {
+    margin-top: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+h1{
+    color:var(--accent);
+    text-align:center;
+    margin-bottom:35px;
+    font-size:2.2rem;
+}
+
+.tip{
+    background:#f9edff;
+    border-left:6px solid var(--accent);
+    border-right:6px solid var(--accent);
+    padding:20px 25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    font-size:1.1rem;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#666;
+    font-size:0.95rem;
+}
+
+.back-button{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.back-button img{
+    width: 28px;
+    height: 28px;
+}
+
+.back-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.super-tip{
+    background:#f6f2ff;
+    border-left:10px solid var(--accent);
+    border-right:10px solid var(--accent);
+    padding:32px 36px;
+    border-radius:16px;
+    margin-bottom:24px;
+    font-size:1.35rem;
+    font-weight:600;
+}
+</style>
+
+</head>
+
+<body>
+
+    <a class="back-button" href="../index.html">
+        <img src="../images/backbutton.png" alt="Back">
+    </a>
+
+    <div class="container">
+
+        <h1>수면과 각성에 따른 심박수 변화</h1>
+
+        <div class="super-tip">
+        일찍 자서 우리 몸의 수면 시간을 채우고, 수면에 예열된 우리 몸을 위해 자기 전 폰을 보거나 너무 뇌를 쓰지는 말자!
+        </div>
+
+        <div class="tip">
+        수면과 각성은 단순히 깨어 있고 잠드는 표면적인 상태 변화를 넘어, 신체의 모든 장기와
+        자율신경계가 정교하게 맞물려 돌아가는 거대한 생체 리듬의 전환입니다. 이 과정에서 뇌 대사,
+        혈압, 위장관 기능 등 전반적인 시스템에서 뚜렷한 수치적 변화가 일어납니다.
+        </div>
+
+        <div class="tip">
+        심박수는 몸을 긴장시키는 <strong>교감신경</strong>과 심장을 차분하게 가라앉히는
+        <strong>부교감신경</strong>의 균형에 의해 결정됩니다. 흥미로운 점은 부교감 신경의 활동을
+        반영하는 지표들이 <strong>실제 잠에 들기 약 2시간 전부터</strong> 이미 변화를 시작한다는
+        것입니다. 즉, 신체는 잠자리에 들기 훨씬 전부터 심장 박동을 부드러운 상태로 진정시키며
+        수면을 준비합니다.
+        </div>
+
+        <div class="tip">
+        잠이 점차 깊어져 서파 수면 단계로 내려갈수록 교감신경의 활성은 끊임없이 낮아지고, 이에
+        발맞춰 심박수 역시 하루 중 가장 낮고 평온한 상태를 유지하게 됩니다.
+        </div>
+
+        <div class="tip">
+        아침에 잠에서 깨어나는 과정은 심장-부신계를 단계적으로 강력하게 활성화시킵니다. 이로 인해
+        <strong>카테콜아민</strong>이라는 스트레스·각성 호르몬이 다량 분비되면서 심박수와 혈압이
+        계단식으로 급격하게 상승합니다. 여기에 몸을 일으키는 자세 변화와 아침 활동이 더해지면
+        심박수는 한 단계 더 가파르게 치솟으며 완전한 각성 상태로 돌아갑니다.
+        </div>
+
+        <details class="dropdown">
+            <summary>뇌 대사·혈압 변화 세부 내용 더 보기</summary>
+            <div class="details-content">
+                깨어 있는 각성 상태에서 활발하게 정보를 처리하던 뇌는 수면 상태로 진입하면서 대사율이
+                눈에 띄게 줄어듭니다. 얕은 잠 단계인 비렘(NREM) 2단계 수면에서는 각성 상태와 비교했을
+                때 뇌의 포도당 및 산소 대사량, 대뇌 혈류량이 약 5~10%가량 감소합니다. 깊은 잠인
+                서파 수면(3~4단계)에 이르면 이 수치는 무려 25~40%까지 크게 떨어지며, 뇌가 본격적인
+                휴식과 재정비 상태에 들어갔음을 보여줍니다.
+                <br><br>
+                이러한 에너지 대사의 감소는 혈압의 변화로도 이어집니다. 낮 시간대의 각성 상태에서는
+                자세나 활동량, 스트레스 등에 따라 혈압이 유동적으로 유지되지만, 수면 상태에 들어가면
+                혈압이 안정적으로 내려가는 '딥핑(Dipping) 현상'이 발생합니다. 건강한 사람의 경우 수면
+                중 수축기 혈압이 낮 시간대에 비해 10% 이상 감소하는 것이 정상적입니다.
+            </div>
+        </details>
+
+        <details class="dropdown">
+            <summary>위장관 리듬 및 실험 결과 더 보기</summary>
+            <div class="details-content">
+                내부 장기인 위장관 역시 수면 주기에 맞춰 리듬을 바꿉니다. 위장의 운동을 조절하는
+                뇌간의 위장 박동조율기(Gastric pacemaker)는 각성 상태에서 분당 약 3회의 기본 전기적
+                리듬을 방출하며 위장관 기능을 안정적으로 유지하지만, 비렘 수면 상태로 들어가면 이
+                3회 주기의 에너지가 유의미하게 감소하고 전기적 리듬의 기능적 불안정성이 심화되면서
+                전반적인 위장관 운동이 저하됩니다.
+                <br><br>
+                한편, 24시간 동안 잠을 자지 못하게 통제하는 실험을 진행하더라도 밤 시간이 되면
+                생체 시계(Circadian rhythm)의 영향으로 심박수가 자연스레 떨어지는 경향을 보입니다.
+                다만 교감신경의 확실한 억제로 인한 진정한 심장의 휴식과 혈압 강하는 오직 실제로
+                수면 상태에 도달했을 때에만 온전하게 완성됩니다.
+                <br><br>
+                결과적으로 심장 박동은 단순히 기계적으로 켜고 꺼지는 펌프가 아니라, 각성과 수면이라는
+                신체의 대전환에 맞추어 완벽하게 조율된 정교한 흐름 속에서 움직이고 있는 것입니다.
+            </div>
+        </details>
+
+    </div>
+</body>
+</html>
