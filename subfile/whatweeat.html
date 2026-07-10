@@ -142,6 +142,34 @@ h1{
     font-size:1.35rem;
     font-weight:600;
 }
+
+/* Added for today's menu dropdown */
+#menu-content h3{
+    color: var(--accent);
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+#menu-content h3:first-child{
+    margin-top: 0;
+}
+
+#menu-content ul{
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 8px;
+}
+
+#menu-content li{
+    margin-bottom: 4px;
+}
+
+#menu-content .menu-updated{
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #888;
+}
 </style>
 
 </head>
@@ -155,6 +183,13 @@ h1{
     <div class="container">
 
         <h1>식단에 따른 집중도</h1>
+
+        <details class="dropdown" open>
+            <summary>오늘의 급식 메뉴</summary>
+            <div class="details-content" id="menu-content">
+                <p>메뉴를 불러오는 중입니다...</p>
+            </div>
+        </details>
 
         <div class="tip">
         아침 식사는 밤사이 감소한 혈당을 회복시켜 <strong>두뇌 활동에 필요한 포도당을 공급</strong>합니다.
@@ -210,6 +245,53 @@ h1{
         </div>
 
     </div>
+
+    <script>
+    // Fetches data/menu.json (one folder up from subfiles/) and fills in
+    // today's breakfast/lunch/dinner inside the dropdown above.
+    fetch('../data/menu.json')
+        .then(function(res) {
+            if (!res.ok) throw new Error('menu.json fetch failed: ' + res.status);
+            return res.json();
+        })
+        .then(function(data) {
+            function formatMeal(mealText) {
+                if (!mealText || mealText === 'Not available') {
+                    return '<p>정보 없음</p>';
+                }
+                var items = mealText.split(',')
+                    .map(function(item) { return item.trim(); })
+                    .filter(function(item) { return item.length > 0; });
+                var html = '<ul>';
+                items.forEach(function(item) {
+                    html += '<li>' + item + '</li>';
+                });
+                html += '</ul>';
+                return html;
+            }
+
+            var updatedText = '알 수 없음';
+            if (data.last_updated) {
+                var updatedDate = new Date(data.last_updated);
+                updatedText = updatedDate.toLocaleString('ko-KR', {
+                    timeZone: 'Asia/Seoul',
+                    year: 'numeric', month: 'long', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit'
+                });
+            }
+
+            document.getElementById('menu-content').innerHTML =
+                '<h3>조식</h3>' + formatMeal(data.breakfast) +
+                '<h3>중식</h3>' + formatMeal(data.lunch) +
+                '<h3>석식</h3>' + formatMeal(data.dinner) +
+                '<p class="menu-updated">마지막 업데이트: ' + updatedText + '</p>';
+        })
+        .catch(function(err) {
+            document.getElementById('menu-content').innerHTML =
+                '<p>메뉴 정보를 불러오지 못했습니다.</p>';
+            console.error(err);
+        });
+    </script>
 
 </body>
 </html>
