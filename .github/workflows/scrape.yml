@@ -24,6 +24,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run scraper
+        env:
+          NEIS_API_KEY: ${{ secrets.NEIS_API_KEY }}
         run: python scrape_menu.py
 
       - name: Commit and push updated menu
