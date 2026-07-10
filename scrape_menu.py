@@ -19,7 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # TODO: replace with the real menu page URL
-MENU_URL = "https://school-website.example.com/menu"
+MENU_URL = "https://school.use.go.kr/hcu-h/M01080101/list?ymd={today}"
 
 # Where the scraped data gets written (relative to repo root)
 OUTPUT_PATH = Path("data/menu.json")
