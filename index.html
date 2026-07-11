@@ -2,7 +2,6 @@
 <html lang="kr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.5">
 <title>청운고 안내 웹사이트</title>
 <style>
   :root {
@@ -32,55 +31,54 @@
   body {
     position: relative;
     overflow: hidden;
+    margin: 0;
+    height: 100vh;
   }
-  
 
   .corner-btn {
     position: fixed;
-    padding: 12px 20px;
+    padding: clamp(8px, 1.2vw, 12px) clamp(14px, 2.2vw, 20px);
     background: transparent;
     color: var(--line);
     border: 1px solid var(--line);
     border-radius: 7px;
-    font-size: 30px;
+    font-size: clamp(18px, 2.8vw, 30px);
     font-weight: 600;
     letter-spacing: 0.03em;
     text-decoration: none;
     cursor: pointer;
+    white-space: nowrap;
     transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   }
-
   .corner-btn:hover {
     background: var(--hover);
     color: var(--hover-text);
     transform: translateY(-2px);
   }
 
-  .top-left     { top: 200px; left: 175px; }
-  .top-right    { top: 200px; right: 175px; }
-  .middle-left  { top: 47vh; left: 175px; }
-  .middle-right { top: 47vh; right: 175px; }
-  .bottom-left  { bottom: 200px; left: 175px; }
-  .bottom-right { bottom: 200px; right: 175px; }
+  .top-left     { top: clamp(90px, 18vh, 200px); left: clamp(20px, 9vw, 175px); }
+  .top-right    { top: clamp(90px, 18vh, 200px); right: clamp(20px, 9vw, 175px); }
+  .middle-left  { top: 47vh; left: clamp(20px, 9vw, 175px); }
+  .middle-right { top: 47vh; right: clamp(20px, 9vw, 175px); }
+  .bottom-left  { bottom: clamp(90px, 18vh, 200px); left: clamp(20px, 9vw, 175px); }
+  .bottom-right { bottom: clamp(90px, 18vh, 200px); right: clamp(20px, 9vw, 175px); }
 
-  .top-middle { 
+  .top-middle {
     position: fixed;
-    top: 70px;
+    top: clamp(30px, 6vh, 70px);
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 65px;
-    font-weight: 2000;
+    font-size: clamp(32px, 6vw, 65px);
+    font-weight: 800;
     letter-spacing: 0.02em;
     font-family: "nyt-cheltenham", georgia, "times new roman", times, serif;
     animation: blink 1.5s infinite ease-in-out;
+    text-align: center;
+    white-space: nowrap;
   }
-
-    @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 0 0 5px
-    }
+  @keyframes blink {
+    0%, 100% { opacity: 1; text-shadow: 0 0 5px; }
   }
 
   .center-double {
@@ -90,12 +88,13 @@
     transform: translate(-50%, -50%);
     border: 5px solid #fff;
     box-shadow: 0 0 0 10px #fff;
+    width: clamp(180px, 25vw, 320px);
+    height: clamp(180px, 25vw, 320px);
   }
 </style>
 </head>
 <body>
-
-  <img src="images/chungun_removebg.png" class="center-double" width="320" height="320">
+  <img src="images/chungun_removebg.png" class="center-double">
   <div class="top-middle">공부증진 웹페이지</div>
   <a class="corner-btn top-left"     href="subfile/co2rates.html" target="_blank" rel="noopener noreferrer">이산화탄소 농도</a>
   <a class="corner-btn top-right"    href="subfile/whatweeat.html" target="_blank" rel="noopener noreferrer">식습관</a>
@@ -103,6 +102,5 @@
   <a class="corner-btn middle-right" href="subfile/bloodthing.html" target="_blank" rel="noopener noreferrer">혈중 농도</a>
   <a class="corner-btn bottom-left"  href="subfile/jupasu.html" target="_blank" rel="noopener noreferrer">소리 자극</a>
   <a class="corner-btn bottom-right" href="subfile/sleepytime.html" target="_blank" rel="noopener noreferrer">수면</a>
-
 </body>
 </html>
